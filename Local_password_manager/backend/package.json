@@ -1,0 +1,16 @@
+{
+  "name": "password-manager-backend",
+  "version": "1.0.0",
+  "description": "Backend for the password manager application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "crypto-js": "^4.2.0",
+    "express": "^4.19.2",
+    "sqlite3": "^5.1.7"
+  }
+}
