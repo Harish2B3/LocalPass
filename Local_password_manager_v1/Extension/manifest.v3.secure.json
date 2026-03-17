@@ -1,0 +1,67 @@
+{
+    "manifest_version": 3,
+    "name": "PassManager - Secure Password Vault",
+    "version": "3.0.0",
+    "description": "Zero-knowledge password manager with end-to-end encryption and smart autofill. Your passwords, encrypted on your device.",
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting",
+        "alarms",
+        "idle"
+    ],
+    "host_permissions": [
+        "http://localhost:3001/*"
+    ],
+    "optional_host_permissions": [
+        "https://*/*",
+        "http://*/*"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "PassManager - Secure Vault",
+        "default_icon": {
+            "16": "icons/icon16.png",
+            "32": "icons/icon32.png",
+            "48": "icons/icon48.png",
+            "128": "icons/icon128.png"
+        }
+    },
+    "background": {
+        "service_worker": "service-worker.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "contentScript.js"
+            ],
+            "run_at": "document_end",
+            "all_frames": false
+        }
+    ],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none';"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "icons/*"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ],
+    "icons": {
+        "16": "icons/icon16.png",
+        "32": "icons/icon32.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "minimum_chrome_version": "102",
+    "author": "PassManager Security Team",
+    "homepage_url": "https://github.com/yourusername/passmanager"
+}
